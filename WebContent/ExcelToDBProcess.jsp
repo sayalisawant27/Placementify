@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="services.DatabaseServices" %>
+    <%@ page import="service.DBServices" %>
      <%@ page import="java.sql.*" %>
      <%@ page import="java.util.Date" %>
-     <%@ page import="models.Student" %>
+     <%@ page import="model.Student" %>
 	<%@page import="org.apache.poi.poifs.filesystem.*"%>
 	<%@page import="org.apache.poi.hssf.usermodel.HSSFSheet"%>
 	<%@page import="org.apache.poi.hssf.usermodel.HSSFWorkbook"%>
@@ -77,7 +77,7 @@
 	Date fileUploadDate=new Date(request.getAttribute("fileUploadDate")+"");
 	String filePath=(String)request.getAttribute("filePath");
 	if(request.getAttribute("toDoOp")==null){
-		DatabaseServices db=new DatabaseServices();
+		DBServices db=new DBServices();
 		Connection conn=db.connectDB();
 		PreparedStatement stmt=conn.prepareStatement("select * from file where fname=? and fsize=? and uploadDate=?");
 		stmt.setString(1,fileName);

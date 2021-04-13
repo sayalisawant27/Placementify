@@ -1,4 +1,4 @@
-package models;
+package model;
 
 public class Course {
     public int cid;
@@ -9,30 +9,30 @@ public class Course {
     public String university;
 
     public Course(int cid, String courseName, String specialisation, String collegeName, int duration,
-			String university) {
-		this.cid = cid;
-		this.courseName = courseName;
-		this.specialisation = specialisation;
-		this.collegeName = collegeName;
-		this.duration = duration;
-		this.university = university;
-	}
-    
+                  String university) {
+        this.cid = cid;
+        this.courseName = courseName;
+        this.specialisation = specialisation;
+        this.collegeName = collegeName;
+        this.duration = duration;
+        this.university = university;
+    }
+
     public Course(int cid) {
-		super();
-		this.cid = cid;
-	}
+        super();
+        this.cid = cid;
+    }
 
-	public Course(String courseName, String specialisation, String collegeName, int duration,
-			String university) {
-		this.courseName = courseName;
-		this.specialisation = specialisation;
-		this.collegeName = collegeName;
-		this.duration = duration;
-		this.university = university;
-	}
+    public Course(String courseName, String specialisation, String collegeName, int duration,
+                  String university) {
+        this.courseName = courseName;
+        this.specialisation = specialisation;
+        this.collegeName = collegeName;
+        this.duration = duration;
+        this.university = university;
+    }
 
-	public int getCid() {
+    public int getCid() {
         return cid;
     }
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@ page import="services.DatabaseServices" %>
+     <%@ page import="service.DBServices" %>
      <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
      	int uid;
      	PreparedStatement stmt1,stmt2;
      	ResultSet rs1,rs2;
-     	DatabaseServices db=new DatabaseServices();
+     	DBServices db=new DBServices();
      	Connection conn=db.connectDB();
      	String username=request.getParameter("username");
      	String password=request.getParameter("password");

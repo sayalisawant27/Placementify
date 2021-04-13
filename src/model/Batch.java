@@ -1,4 +1,4 @@
-package models;
+package model;
 
 public class Batch {
     public int bid;
@@ -9,16 +9,16 @@ public class Batch {
     public double noOfStudents;
 
     public Batch(int bid, int cid, String batchName, int startYear, int endYear, double noOfStudents) {
-		super();
-		this.bid = bid;
-		this.cid = cid;
-		this.batchName = batchName;
-		this.startYear = startYear;
-		this.endYear = endYear;
-		this.noOfStudents = noOfStudents;
-	}
+        super();
+        this.bid = bid;
+        this.cid = cid;
+        this.batchName = batchName;
+        this.startYear = startYear;
+        this.endYear = endYear;
+        this.noOfStudents = noOfStudents;
+    }
 
-	public int getBid() {
+    public int getBid() {
         return bid;
     }
 
@@ -66,4 +66,3 @@ public class Batch {
         this.noOfStudents = noOfStudents;
     }
 }
-
