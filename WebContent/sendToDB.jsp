@@ -115,7 +115,6 @@ std.setCompanyLocation(request.getParameter("companyLoc"));
 std.setYearsOfExperience(request.getParameter("yearsOfExp"));
 //setStudentDatatoDB(std);
 
-out.println(std);
 %>
 </body>
 </html>

@@ -158,6 +158,8 @@ function courseValueChanged() {
 	  populateCourses();
 	  disableSelection();
 	});
+	
+	
 
 function SSCEnableDisableTextBox(eleValue) {
     var percentField = document.getElementById("sscPercent");
@@ -249,10 +251,68 @@ function upload_check(callbackOrigin,fieldMax)
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+	initForm();
   populateCourses();
   disableSelection();
 });
 
+function initForm(){
+	var currDate=new Date();
+	var currTime=currDate.getHours().toString()+ currDate.getMinutes().toString()+ currDate.getSeconds().toString();
+	var randNo= Math.floor(Math.random()*10001);
+	
+	var finalName= CryptoJS.MD5((randNo+currTime).toString()).toString();
+	
+	console.log(finalName);
+	document.getElementById("formId").value=finalName;
+	
+	document.getElementById("resumeNameID").value=finalName;
+	document.getElementById("formId").value=finalName;
+	
+}
+
+function onlynum(eleName) {
+    var fm = document.getElementById("form2");
+    var ip = document.getElementById(eleName);
+    var tag = document.getElementById("value");
+    var res = ip.value;
+
+    if (res != '') {
+        if (isNaN(res)) {
+              
+            // Set input value empty
+            ip.value = "";
+              alert("Only numeric values allowed");
+            // Reset the form
+            fm.reset();
+            return false;
+        } else {
+            return true
+        }
+    }
+}
+
+function phoneNoValidate(fieldValue,errorId){
+	var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+	
+	  if(fieldValue.value.match(phoneno))
+	     {
+		  document.getElementById(errorId).innerHTML="";
+		 }
+	   else
+	     {
+		   fieldValue.value="";
+		   document.getElementById(errorId).innerHTML="Not a valid Phone Number";
+	     }
+}
+
+/*$(function() {
+    $("input[name='SSCcgpaGrade']").on('input', function(e) {
+        $(this).val($(this).val().replace(^\d+(\.\d{1,2})?$, ''));
+    });
+});
+//$(this).val($(this).val().replace(/[^0-9]/g, ''));
+*/
 
 var disableSelection = function () {
   $("cgpaGrade").prop("disabled", true);

@@ -3,16 +3,20 @@ package model;
 public class Course {
     public int cid;
     public String courseName;
-    public String specialisation;
+    //public String specialisation;
     public String collegeName;
     public int duration;
     public String university;
 
-    public Course(int cid, String courseName, String specialisation, String collegeName, int duration,
+    public Course() {
+    	
+    }
+    
+    public Course(int cid, String courseName, String collegeName, int duration,
                   String university) {
         this.cid = cid;
         this.courseName = courseName;
-        this.specialisation = specialisation;
+  //      this.specialisation = specialisation;
         this.collegeName = collegeName;
         this.duration = duration;
         this.university = university;
@@ -23,10 +27,10 @@ public class Course {
         this.cid = cid;
     }
 
-    public Course(String courseName, String specialisation, String collegeName, int duration,
+    public Course(String courseName, String collegeName, int duration,
                   String university) {
         this.courseName = courseName;
-        this.specialisation = specialisation;
+ //       this.specialisation = specialisation;
         this.collegeName = collegeName;
         this.duration = duration;
         this.university = university;
@@ -48,14 +52,14 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getSpecialisation() {
+/*    public String getSpecialisation() {
         return specialisation;
     }
 
     public void setSpecialisation(String specialisation) {
         this.specialisation = specialisation;
     }
-
+*/
     public String getCollegeName() {
         return collegeName;
     }

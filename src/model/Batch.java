@@ -8,6 +8,10 @@ public class Batch {
     public int endYear;
     public double noOfStudents;
 
+    public Batch() {
+    	
+    }
+    
     public Batch(int bid, int cid, String batchName, int startYear, int endYear, double noOfStudents) {
         super();
         this.bid = bid;
