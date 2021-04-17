@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .required-field::after {
+            content: "*";
+            color: red;
+            margin-left: 2px
+        }
+    </style>
+
+    <title>DYPIMR | Student Registration</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">DYPIMR, Placement Cell</a>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h5 class="display-4">Student registration</h5>
+            <p class="lead">This is for a automation system develeoped for
+                Placement cell of DYPIMR, Pimpri</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="/Placementify/StudentObjSave">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text required-field">Name</span>
+                            </div>
+                            <input type="text" name="firstName" id="firstName" aria-label="First name"
+                                placeholder="First" class="form-control" required> <input type="text" name="middleName"
+                                id="middleName" aria-label="Middle name" placeholder="Middle" class="form-control"
+                                required> <input type="text" name="lastName" id="lastName" aria-label="Last name"
+                                placeholder="Last" class="form-control" required>
+                        </div>
+                        <small class="form-text text-muted">As per SSC Marksheeet</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="required-field" for="emailId">Email address</label> <input type="email"
+                            class="form-control" id="emailId" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="required-field" for="phoneNumber">Phone Number</label> <input type="tel"
+                                    id="phoneNumber" class="form-control" placeholder="9876543210" maxlength="10">
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="required-field" for="whatsappNumber">Whatsapp Number</label> <input
+                                    type="tel" maxlength="10" id="whatsappNumber" class="form-control"
+                                    placeholder="9876543210">
+                                <div class="form-check">
+                                    <input onchange="sameAsPhone()" class="form-check-input" type="checkbox"
+                                        id="gridCheck1">
+                                    <small class="form-check-label" for="gridCheck1"> Same
+                                        as phone number </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="required-field" for="gender">Gender</label> <select class="form-control"
+                                    id="gender" name='gender'>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="required-field" for="dateOfBirth">Date of Birth</label> <input
+                                    class="form-control" name="dateOfBirth" id="dateOfBirth" name="date"
+                                    placeholder="MM/DD/YYYY" type="date" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label class="required-field" for="currentStateSelect">Current State</label> <select
+                                    class="form-control" onchange="onStateValueChanged('currentStateSelect',this.value)"
+                                    id="currentStateSelect" name="currentStateSelect">
+                                    <option selected>Select one</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="required-field" for="currentCitySelect">Current City</label> <select
+                                    class="form-control" id="currentCitySelect" name="currentCitySelect">
+                                    <option selected>Select one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label class="required-field" for="homeStateSelect">Home State</label> <select
+                                    class="form-control" onchange="onStateValueChanged('homeStateSelect',this.value)"
+                                    id="homeStateSelect" name="homeStateSelect">
+                                    <option selected>Select one</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="required-field" for="homeCitySelect">Home City</label> <select
+                                    class="form-control" id="homeCitySelect" name="homeCitySelect">
+                                    <option selected>Select one</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 required-field">Languages known</div>
+                        <br>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="English" value="English">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">English</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="Hindi" value="Hindi">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">Hindi</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="Marathi" value="Marathi">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">Marathi</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="OtherLanguages" onclick="EnableOtherLangs(this)"
+                                            name="OtherLanguages" value="OtherLanguages">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control form-control-sm"
+                                    placeholder="Others (seperated by a comma)" id="otherLanguagesKnown"
+                                    name="otherLanguagesKnown" disabled="disabled"
+                                    onblur="checkData(this.id, this.value)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label class="required-field" for="selectCourse">Course</label> <select
+                                    class="form-control" onclick="courseSelected(this.value)" id="selectCourse">
+                                    <option selected>Select a course</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="required-field" for="selectBatch">Batch</label> <select
+                                    class="form-control" id="selectBatch">
+                                    <option selected>Select a batch</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-field" for="currentInstitute">Current Institute</label> <input
+                            type="text" class="form-control" id="currentInstitute"
+                            value="Dr. D. Y. Patil Institute of Management and Research, Pimpri" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="postGraduation">Post graduation <small class="form-text text-muted">Only applicable
+                                if you've
+                                completed before the current course.</small>
+                        </label> <input type="text" class="form-control" id="postGraduation"
+                            placeholder="E.g. M.Sc., M.Tech., M.Com., etc.">
+                    </div>
+                    <div class="form-group">
+                        <label class="required-field" for="dreamCompanies">Dream companies</label> <input type="text"
+                            class="form-control" id="dreamCompanies"
+                            placeholder="E.g. TCS, Wipro, Google, Microsoft, etc.">
+                    </div>
+                    <br />
+
+                    <div class="form-group row">
+                        <div class="col-sm-3 required-field">Graduation</div>
+                        <br>
+                        <div class="col-sm-9">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="gradCourseOption" onchange="EnableOtherCourse(this.value)"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">B.Sc.
+                                    Computer Science</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="gradCourseOption" onchange="EnableOtherCourse(this.value)"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">BBA (CA)</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="gradCourseOption" onchange="EnableOtherCourse(this.value)"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">B.Com.</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="gradCourseOption" onchange="EnableOtherCourse(this.value)"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">B.Sc.
+                                    (Other specializations)</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" name="gradCourseOption" onchange="EnableOtherCourse(this.value)"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+                                <label class="form-control  form-control-sm">BE</label>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" id="otherCourse" name="gradCourseOption" value="OtherCourse"
+                                            onchange="EnableOtherCourse(this.value)"
+                                            aria-label="Checkbox for following text input">
+                                    </div>
+                                </div>
+                                <input type="text" id="otherCourseName" name="otherCourseName" disabled="disabled"
+                                    onblur="checkData(this.id, this.value)" class="form-control form-control-sm"
+                                    placeholder="Other">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="graduationYear">Graduation Passout Year</label> <input
+                                type="text" id="graduationYear" name="graduationYear" class="form-control"
+                                placeholder="E.g. 2020">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="graduationMarkingScheme">Graduation marking
+                                Scheme</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <select class="form-control" id="selectGradMakingScheme"
+                                        name="selectGradMakingScheme">
+                                        <option selected>Select one</option>
+                                        <option>Percentage</option>
+                                        <option>CGPA</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control" id="percentOrCgpa" name="percentOrCgpa"
+                                    placeholder="Enter Percent or CGPA" aria-label="Text input with dropdown button">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="required-field" for="graduationInstitute">Graduation Institute</label>
+                                <input type="text" class="form-control" id="graduationInstitute"
+                                    name="graduationInstitute" placeholder="Enter your graduation college name">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <label class="required-field" for="graduationUniversity">Graduation University</label>
+                                <input type="text" class="form-control" id="graduationUniversity"
+                                    name="graduationUniversity" placeholder="Enter your graduation college name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="hscYear">HSC Passout Year</label> <input type="text"
+                                id="hscYear" class="form-control" placeholder="E.g. 2017">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="hscMarkingScheme">HSC marking Scheme</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <select class="form-control" id="selectHSCMakingScheme">
+                                        <option selected>Select one</option>
+                                        <option>Percentage</option>
+                                        <option>CGPA</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter Percent or CGPA"
+                                    aria-label="Text input with dropdown button">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="sscYear">SSC Passout Year</label> <input type="text"
+                                id="sscYear" class="form-control" placeholder="E.g. 2015">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="sscMarkingScheme">SSC marking Scheme</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <select class="form-control" id="selectSSCMakingScheme">
+                                        <option selected>Select one</option>
+                                        <option>Percentage</option>
+                                        <option>CGPA</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter Percent or CGPA"
+                                    aria-label="Text input with dropdown button">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="educationGap">Education Gap</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <select class="form-control" onchange="enableAccChoice(this.value,'gapYears')" id="educationGap">
+                                        <option value="" selected>Select one</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                                <input type="text" disabled="disabled" id="gapYears" class="form-control" placeholder="No. of years"
+                                    aria-label="Text input with dropdown button">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="required-field" for="workExperience">Work experience</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <select class="form-control" onchange="enableAccChoice(this.value,'workExpYears')" id="workExperience">
+                                        <option value="" selected>Select one</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                                <input type="text" disabled="disabled" class="form-control" id="workExpYears" placeholder="No. of years"
+                                    aria-label="Text input with dropdown button">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label for="companyName">Company Name</label> <input type="text" id="companyName"
+                                class="form-control" placeholder="E.g. TCS, Cognizant, etc.">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label for="companyLocation">Comapany Location</label> <input type="text"
+                                id="companyLocation" class="form-control" placeholder="E.g. Pune, Mumbai, etc.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="required-field" for="resumeFile">Upload resume</label>
+                        <div id="resumeFile" class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile02"> <label
+                                    class="custom-file-label" for="inputGroupFile02">Choose resume file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required-field" for="photoFile">Upload photo</label>
+                        <div id="photoFile" class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile02"> <label
+                                    class="custom-file-label" for="inputGroupFile02">Choose photo</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <script type="text/javascript" src="js/newScript.js"></script>
+    <script type="text/javascript" src="js/addressDetails.js"></script>
+    <link rel="stylesheet" src="css/style.css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.getJSON("/Placementify/CourseListAPI", function (data) {
+                var courseOptions = "";
+                var courseDropdown = document.getElementById("selectCourse");
+                $.each(data.courseData, function (i, data) {
+                    courseOptions += '<option value="' + data.courseId + '">' + data.courseName + '</option>';
+                    console.log(data.courseId, " : ", data.courseName);
+                });
+                courseDropdown.innerHTML = courseOptions;
+            });
+        });
+
+        function courseSelected(courseValue) {
+            $.getJSON("/Placementify/BatchListAPI?Id=" + courseValue, function (data) {
+                var batchOptions = "";
+                var batchDropdown = document.getElementById("selectBatch");
+                $.each(data.batchData, function (i, data) {
+                    batchOptions += '<option value="' + data.batchId + '">' + data.batchName + '</option>';
+                    console.log(data.batchId, " : ", data.batchName);
+                });
+                batchDropdown.innerHTML = batchOptions;
+            });
+        }
+
+        $(document).ready(function () {
+
+        });
+
+        $('select[name="OtherLanguages"]').change(function () {
+            if ($(this).val() == "OtherLanguages") {
+                $('input[name="otherLanguagesKnown"]').prop('disabled', false);
+            } else { $('input[name="otherLanguagesKnown"]').prop('disabled', true); }
+        });
+    </script>
+</body>
+
+</html>

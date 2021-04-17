@@ -1,0 +1,177 @@
+<!-- request.setAttribute("formId", "%><script>
+								return finalName
+							</script> -->
+<!-- 															<div class="row">
+																<div class="col s12 l12">
+																	<div class="file-field input-field">
+																		<input id="resumeNameID"
+																			form="resume-upload-form" type="hidden" />
+																		<input id="resume_max_id"
+																			form="resume-upload-form" type="hidden"
+																			name="MAX_FILE_SIZE" value="16777216" />
+																		<span> Browse </span> <input type="file"
+																			form="resume-upload-form"
+																			onchange="upload_check(this,'resume_max_id')"
+																			id="resumeSelectBtn" class="col s12 l8 ">
+																		<div class="file-path-wrapper col s12 l10">
+																			<input class="file-path validate"
+																				form="resume-upload-form" type="text"
+																				placeholder="Click on the button to upload your resume">
+																		</div>
+																		<input type="submit" id="resume-upload-button"
+																			value="Upload Resume"
+																			form="resume-upload-form"
+																			class="btn" /><span
+																			id="resumeResult"></span>
+																	</div>
+																</div>
+															</div> -->
+
+<!-- 
+															<div class="row">
+																																	<input id="resumeNameID"
+																			form="resume-upload-form" type="hidden" />
+																		<input id="resume_max_id"
+																			form="resume-upload-form" type="hidden"
+																			name="MAX_FILE_SIZE" value="16777216" />
+																<div class="col s6 l2">
+																	<input type="file"
+																			form="resume-upload-form"
+																			onchange="upload_check(this,'resume_max_id')"
+																			id="resumeSelectBtn" value="Browse" class="waves-effect red btn-small"><i
+																			class="material-icons left">folder</i></input>
+																</div>
+																<div class="col s6 l2">
+																	<a class="waves-effect  red btn-small"><i
+																			class="material-icons left">backup</i>Upload</a>
+																</div>
+																<div  class="inline col s12 l8">
+																<input style="height: 30px;" class="validate" type="text" placeholder="Click on the button to upload your passport size photo">
+																</div>
+															</div>-->
+
+<div class="row">
+    <div class="col s12 l12">
+        <label>Upload your resume</label>
+        <div class="file-field input-field">
+            <input id="resumeNameID" form="resume-upload-form" type="hidden" />
+            <input id="resume_max_id" form="resume-upload-form" type="hidden" name="MAX_FILE_SIZE" value="16777216" />
+            <div class="btn-small red">
+                <i class="material-icons left">folder</i>
+                <span>Browse</span>
+                <input type="file" form="resume-upload-form" onchange="upload_check(this,'resume_max_id')"
+                    id="resumeSelectBtn" />
+            </div>
+            <div style="margin-left: 5px" class="btn-small red">
+                <i class="material-icons left">backup</i>
+                <span>Upload</span>
+                <input type="submit" id="resume-upload-button" form="resume-upload-form" />
+                <span id="resumeResult"></span>
+            </div>
+
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload files" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field  col s12 l12">
+            <div class="file-field input-field">
+                <div class="btn col s12 l2">
+                    <input id="photo_max_id" type="hidden" name="MAX_FILE_SIZE" value="3145728" />
+                    <span>Browse</span> <input type="file" onchange="upload_check(this,'photo_max_id')"
+                        id="photoSelectBtn">
+                </div>
+                <div class="file-path-wrapper col s12 l10">
+                    <input class="file-path validate" type="text"
+                        placeholder="Click on the button to upload your passport size photo">
+                </div>
+                <input type="submit" id="photo-upload-button" value="Upload Photo" form="photo-upload-form"
+                    class="btn" /><span id="photoResult"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="input-field col s12 l12" align="right">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Submit <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+
+</div>
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+<script>
+		$('#currentCourse').change(function () {
+			var data = "";
+
+			$.ajax({
+				type: "GET",
+				url: "/Placementify/PopulateBatch",
+				data: "currentCourse_selectedvalue=" + $(this).val(),
+
+				async: false,
+				success: function (response) {
+					data = response;
+					document.getElementById("currentBatch").innerHTML = data;
+					console.log(data);
+				},
+				error: function () {
+					alert('Error occured');
+				}
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			$('#resume-upload-button').click(function () {
+				var form = $('#resume-upload-form');
+				var formId = $("#resumeNameID").val();
+				form.submit();
+				form.submit(function () {
+					$.ajax({
+						type: "POST",
+						url: "/Placementify/TestServlet",
+						data: "filedata=" + form.serialize() + "&field2=" + formId,
+						enctype: 'multipart/form-data',
+						success: function (result) {
+							$('#resumeResult').html(result);
+							console.log(result);
+						}
+					});
+				});
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#photo-upload-button').click(function () {
+				var form = $('#photo-upload-form');
+				var formId = $("#formId").val();
+				form.submit();
+				$.ajax({
+					type: "POST",
+					url: '/Placementify/TestServlet',
+					data: jQuery.param({
+						field1: form.serialize(),
+						field2: formId
+					}),
+					enctype: 'multipart/form-data',
+					success: function (result) {
+						$('#photoResult').html(result);
+						console.log(result);
+					}
+				});
+			});
+		});
+	</script>

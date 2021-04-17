@@ -904,30 +904,30 @@ window.onload = function () {
 var stateOptions =  "<option>Select a state</option>";
     for (var i = 0; i < stateObject.states.length; i++)
         stateOptions += "<option>" + stateObject.states[i].state + "</option>";
-    document.getElementById("currState").innerHTML = stateOptions;
-    document.getElementById("homeState").innerHTML = stateOptions;
+    document.getElementById("currentStateSelect").innerHTML = stateOptions;
+    document.getElementById("homeStateSelect").innerHTML = stateOptions;
 }
 
 function onStateValueChanged(callOrigin) {
     var cityOptions = "<option>Select a city</option>";
-    if (callOrigin === "currState") {
-        var selectedState = document.getElementById("currState").value;
+    if (callOrigin === "currentStateSelect") {
+        var selectedState = document.getElementById("currentStateSelect").value;
         for (var i = 0; i < stateObject.states.length; i++) {
             if (stateObject.states[i].state === selectedState) {
                 for (let j = 0; j < stateObject.states[i].districts.length; j++)
                     cityOptions += "<option>" + stateObject.states[i].districts[j] + "</option>";
             }
         }
-        document.getElementById("currCity").innerHTML = cityOptions;
+        document.getElementById("currentCitySelect").innerHTML = cityOptions;
     }
-    if (callOrigin === "homeState") {
-        var selectedState = document.getElementById("homeState").value;
+    if (callOrigin === "homeStateSelect") {
+        var selectedState = document.getElementById("homeStateSelect").value;
         for (var i = 0; i < stateObject.states.length; i++) {
             if (stateObject.states[i].state === selectedState) {
                 for (let j = 0; j < stateObject.states[i].districts.length; j++)
                     cityOptions += "<option>" + stateObject.states[i].districts[j] + "</option>";
             }
         }
-        document.getElementById("homeCity").innerHTML = cityOptions;
+        document.getElementById("homeCitySelect").innerHTML = cityOptions;
     }
 }

@@ -6,7 +6,7 @@ import model.Student;
 
 public class DBServices {
 
-    private static String url = "jdbc:mysql://localhost:3306/formcollection?useSSL=false";
+    private static String url = "jdbc:mysql://localhost:3306/placementify?useSSL=false";
     private static String username = "root";
     private static String password = "password";
 

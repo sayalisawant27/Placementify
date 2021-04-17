@@ -1,4 +1,4 @@
-html, body {
+/*html, body {
     min-height: 100%;
 }
 body, div, form, input, select, p {
@@ -121,7 +121,7 @@ button:hover {
 }
 
 /* OLD CSS */
-
+/*
 .icon-block {
   padding: 0 15px;
 }
@@ -131,4 +131,10 @@ button:hover {
 
 .card {
 	width: 100% !important;
+}*/
+
+ .required-field::after {
+  content: "*";
+  color: red;
+  margin-left:2px
 }

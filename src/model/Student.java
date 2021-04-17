@@ -4,28 +4,28 @@ import java.util.Date;
 
 public class Student {
     protected int sid;
-    //Pass the course id in constructor
     protected int cuid;
-    //Pass the batch id in constructor
     protected int bid;
     protected String nameBySSC;
-    protected String gender;
-    protected String currentCity;
-    protected Date dateOfBirth;
-    protected String languagesKnown;
     protected String emaiId;
     protected String phoneNumber;
     protected String whatsappNumber;
-    protected String homeTown;
-    protected String state;
-    protected String course;
-    protected String institute;
-    protected String dreamCompanies;
+    protected String gender;
+    protected Date dateOfBirth;
+    protected String currentState;
+    protected String currentCity;
+    protected String homeState;
+    protected String homeCity;
+    protected String languagesKnown;
+    protected String currentCourse;
+    protected String currentBatch;
+    protected String currentInstitute;
     protected String postgrad;
+    protected String dreamCompanies;
     protected String gradCourse;
-    protected double gradPercent;
     protected double gradCGPA;
     protected String gradYear;
+    protected double gradPercent;
     protected String gradInstitute;
     protected String gradUniversity;
     protected String gradCityState;
@@ -38,346 +38,395 @@ public class Student {
     protected String gap;
     protected int yearsOfGap;
     protected String workExp;
+    protected int yearsOfExp;
     protected String companyName;
     protected String companyLoc;
-    protected String yearsOfExp;
+    protected String formId;
+    protected String resume;
+    protected String photo;
 
     public Student() {
 
     }
 
-    public Student(int sid, int cuid, int bid, String nameBySSC, String gender, String currentCity,
-                   Date dateOfBirth, String languagesKnown, String emaiId, String phoneNumber, String whatsappNumber,
-                   String homeTown, String state, String course, String institute, String dreamCompanies, String postgrad,
-                   String gradCourse, double gradPercent, double gradCGPA, String gradYear,
-                   String gradInstitute, String gradUniversity, String gradCityState, double hscPercent,double hscCGPA,
-                   String hscYear, double sscPercent,double sscCGPA, String sscYear, String gap, int yearsOfGap, String workExp,
-                   String companyName, String companyLoc, String yearsOfExp) {
-        //super();
-        this.sid = sid;
-        this.cuid = cuid;
-        this.bid = bid;
-        this.nameBySSC = nameBySSC;
-        this.gender = gender;
-        this.currentCity = currentCity;
-        this.dateOfBirth = dateOfBirth;
-        this.languagesKnown = languagesKnown;
-        this.emaiId = emaiId;
-        this.phoneNumber = phoneNumber;
-        this.whatsappNumber = whatsappNumber;
-        this.homeTown = homeTown;
-        this.state = state;
-        this.course = course;
-        this.institute = institute;
-        this.dreamCompanies = dreamCompanies;
-        this.postgrad = postgrad;
-        this.gradCourse = gradCourse;
-        this.gradPercent = gradPercent;
-        this.gradCGPA=gradCGPA;
-        this.gradYear = gradYear;
-        this.gradInstitute = gradInstitute;
-        this.gradUniversity = gradUniversity;
-        this.gradCityState = gradCityState;
-        this.hscPercent = hscPercent;
-        this.hscCGPA=hscCGPA;
-        this.hscYear = hscYear;
-        this.sscPercent = sscPercent;
-        this.sscCGPA=sscCGPA;
-        this.sscYear = sscYear;
-        this.gap = gap;
-        this.yearsOfGap = yearsOfGap;
-        this.workExp = workExp;
-        this.companyName = companyName;
-        this.companyLoc = companyLoc;
-        this.yearsOfExp = yearsOfExp;
-    }
+	public Student(int cuid, int bid, String nameBySSC, String emaiId, String phoneNumber, String whatsappNumber,
+			String gender, Date dateOfBirth, String currentState, String currentCity, String homeState, String homeCity,
+			String languagesKnown, String currentCourse, String currentBatch, String currentInstitute, String postgrad,
+			String dreamCompanies, String gradCourse, double gradCGPA, String gradYear, double gradPercent,
+			String gradInstitute, String gradUniversity, String gradCityState, double hscPercent, double hscCGPA,
+			String hscYear, double sscPercent, double sscCGPA, String sscYear, String gap, int yearsOfGap,
+			String workExp, int yearsOfExp, String companyName, String companyLoc, String formId, String resume,
+			String photo) {
+		super();
+		this.cuid = cuid;
+		this.bid = bid;
+		this.nameBySSC = nameBySSC;
+		this.emaiId = emaiId;
+		this.phoneNumber = phoneNumber;
+		this.whatsappNumber = whatsappNumber;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.currentState = currentState;
+		this.currentCity = currentCity;
+		this.homeState = homeState;
+		this.homeCity = homeCity;
+		this.languagesKnown = languagesKnown;
+		this.currentCourse = currentCourse;
+		this.currentBatch = currentBatch;
+		this.currentInstitute = currentInstitute;
+		this.postgrad = postgrad;
+		this.dreamCompanies = dreamCompanies;
+		this.gradCourse = gradCourse;
+		this.gradCGPA = gradCGPA;
+		this.gradYear = gradYear;
+		this.gradPercent = gradPercent;
+		this.gradInstitute = gradInstitute;
+		this.gradUniversity = gradUniversity;
+		this.gradCityState = gradCityState;
+		this.hscPercent = hscPercent;
+		this.hscCGPA = hscCGPA;
+		this.hscYear = hscYear;
+		this.sscPercent = sscPercent;
+		this.sscCGPA = sscCGPA;
+		this.sscYear = sscYear;
+		this.gap = gap;
+		this.yearsOfGap = yearsOfGap;
+		this.workExp = workExp;
+		this.yearsOfExp = yearsOfExp;
+		this.companyName = companyName;
+		this.companyLoc = companyLoc;
+		this.formId = formId;
+		this.resume = resume;
+		this.photo = photo;
+	}
 
-    public int getSid() {
-        return sid;
-    }
+	public int getSid() {
+		return sid;
+	}
 
-    public void setSid(int sid) {
-        this.sid = sid;
-    }
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
 
-    public int getBid() {
-        return bid;
-    }
+	public int getCuid() {
+		return cuid;
+	}
 
-    public void setBid(int bid) {
-        this.bid = bid;
-    }
+	public void setCuid(int cuid) {
+		this.cuid = cuid;
+	}
 
-    public int getCuid() {
-        return cuid;
-    }
+	public int getBid() {
+		return bid;
+	}
 
-    public void setCuid(int cuid) {
-        this.cuid = cuid;
-    }
+	public void setBid(int bid) {
+		this.bid = bid;
+	}
 
-    public String getNameBySSC() {
-        return nameBySSC;
-    }
+	public String getNameBySSC() {
+		return nameBySSC;
+	}
 
-    public void setNameBySSC(String nameBySSC) {
-        this.nameBySSC = nameBySSC;
-    }
+	public void setNameBySSC(String nameBySSC) {
+		this.nameBySSC = nameBySSC;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public String getEmaiId() {
+		return emaiId;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public void setEmaiId(String emaiId) {
+		this.emaiId = emaiId;
+	}
 
-    public String getCurrentCity() {
-        return currentCity;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public void setCurrentCity(String currentCity) {
-        this.currentCity = currentCity;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
+	public String getWhatsappNumber() {
+		return whatsappNumber;
+	}
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+	public void setWhatsappNumber(String whatsappNumber) {
+		this.whatsappNumber = whatsappNumber;
+	}
 
-    public String getLanguagesKnown() {
-        return languagesKnown;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public void setLanguagesKnown(String languagesKnown) {
-        this.languagesKnown = languagesKnown;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-    public String getEmaiId() {
-        return emaiId;
-    }
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
 
-    public void setEmaiId(String emaiId) {
-        this.emaiId = emaiId;
-    }
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getCurrentState() {
+		return currentState;
+	}
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public void setCurrentState(String currentState) {
+		this.currentState = currentState;
+	}
 
-    public String getWhatsappNumber() {
-        return whatsappNumber;
-    }
+	public String getCurrentCity() {
+		return currentCity;
+	}
 
-    public void setWhatsappNumber(String whatsappNumber) {
-        this.whatsappNumber = whatsappNumber;
-    }
+	public void setCurrentCity(String currentCity) {
+		this.currentCity = currentCity;
+	}
 
-    public String getHomeTown() {
-        return homeTown;
-    }
+	public String getHomeState() {
+		return homeState;
+	}
 
-    public void setHomeTown(String homeTown) {
-        this.homeTown = homeTown;
-    }
+	public void setHomeState(String homeState) {
+		this.homeState = homeState;
+	}
 
-    public String getState() {
-        return state;
-    }
+	public String getHomeCity() {
+		return homeCity;
+	}
 
-    public void setState(String state) {
-        this.state = state;
-    }
+	public void setHomeCity(String homeCity) {
+		this.homeCity = homeCity;
+	}
 
-    public String getCourse() {
-        return course;
-    }
+	public String getLanguagesKnown() {
+		return languagesKnown;
+	}
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
+	public void setLanguagesKnown(String languagesKnown) {
+		this.languagesKnown = languagesKnown;
+	}
 
-    public String getInstitute() {
-        return institute;
-    }
+	public String getCurrentCourse() {
+		return currentCourse;
+	}
 
-    public void setInstitute(String institute) {
-        this.institute = institute;
-    }
+	public void setCurrentCourse(String currentCourse) {
+		this.currentCourse = currentCourse;
+	}
 
-    public String getDreamCompanies() {
-        return dreamCompanies;
-    }
+	public String getCurrentBatch() {
+		return currentBatch;
+	}
 
-    public void setDreamCompanies(String dreamCompanies) {
-        this.dreamCompanies = dreamCompanies;
-    }
+	public void setCurrentBatch(String currentBatch) {
+		this.currentBatch = currentBatch;
+	}
 
-    public String getPostgrad() {
-        return postgrad;
-    }
+	public String getCurrentInstitute() {
+		return currentInstitute;
+	}
 
-    public void setPostgrad(String postgrad) {
-        this.postgrad = postgrad;
-    }
+	public void setCurrentInstitute(String currentInstitute) {
+		this.currentInstitute = currentInstitute;
+	}
 
+	public String getPostgrad() {
+		return postgrad;
+	}
 
-    public String getGraduationCourse() {
-        return gradCourse;
-    }
+	public void setPostgrad(String postgrad) {
+		this.postgrad = postgrad;
+	}
 
-    public void setGraduationCourse(String graduationCourse) {
-        this.gradCourse = graduationCourse;
-    }
+	public String getDreamCompanies() {
+		return dreamCompanies;
+	}
 
-    public double getGraduationPercent() {
-        return gradPercent;
-    }
+	public void setDreamCompanies(String dreamCompanies) {
+		this.dreamCompanies = dreamCompanies;
+	}
 
-    public void setGraduationPercent(double graduationPercent) {
-        this.gradPercent = graduationPercent;
-    }
+	public String getGradCourse() {
+		return gradCourse;
+	}
+
+	public void setGradCourse(String gradCourse) {
+		this.gradCourse = gradCourse;
+	}
+
+	public double getGradCGPA() {
+		return gradCGPA;
+	}
+
+	public void setGradCGPA(double gradCGPA) {
+		this.gradCGPA = gradCGPA;
+	}
+
+	public String getGradYear() {
+		return gradYear;
+	}
+
+	public void setGradYear(String gradYear) {
+		this.gradYear = gradYear;
+	}
+
+	public double getGradPercent() {
+		return gradPercent;
+	}
+
+	public void setGradPercent(double gradPercent) {
+		this.gradPercent = gradPercent;
+	}
+
+	public String getGradInstitute() {
+		return gradInstitute;
+	}
+
+	public void setGradInstitute(String gradInstitute) {
+		this.gradInstitute = gradInstitute;
+	}
+
+	public String getGradUniversity() {
+		return gradUniversity;
+	}
+
+	public void setGradUniversity(String gradUniversity) {
+		this.gradUniversity = gradUniversity;
+	}
+
+	public String getGradCityState() {
+		return gradCityState;
+	}
+
+	public void setGradCityState(String gradCityState) {
+		this.gradCityState = gradCityState;
+	}
+
+	public double getHscPercent() {
+		return hscPercent;
+	}
+
+	public void setHscPercent(double hscPercent) {
+		this.hscPercent = hscPercent;
+	}
+
+	public double getHscCGPA() {
+		return hscCGPA;
+	}
+
+	public void setHscCGPA(double hscCGPA) {
+		this.hscCGPA = hscCGPA;
+	}
+
+	public String getHscYear() {
+		return hscYear;
+	}
+
+	public void setHscYear(String hscYear) {
+		this.hscYear = hscYear;
+	}
+
+	public double getSscPercent() {
+		return sscPercent;
+	}
+
+	public void setSscPercent(double sscPercent) {
+		this.sscPercent = sscPercent;
+	}
+
+	public double getSscCGPA() {
+		return sscCGPA;
+	}
+
+	public void setSscCGPA(double sscCGPA) {
+		this.sscCGPA = sscCGPA;
+	}
+
+	public String getSscYear() {
+		return sscYear;
+	}
+
+	public void setSscYear(String sscYear) {
+		this.sscYear = sscYear;
+	}
+
+	public String getGap() {
+		return gap;
+	}
+
+	public void setGap(String gap) {
+		this.gap = gap;
+	}
+
+	public int getYearsOfGap() {
+		return yearsOfGap;
+	}
+
+	public void setYearsOfGap(int yearsOfGap) {
+		this.yearsOfGap = yearsOfGap;
+	}
+
+	public String getWorkExp() {
+		return workExp;
+	}
+
+	public void setWorkExp(String workExp) {
+		this.workExp = workExp;
+	}
+
+	public int getYearsOfExp() {
+		return yearsOfExp;
+	}
+
+	public void setYearsOfExp(int yearsOfExp) {
+		this.yearsOfExp = yearsOfExp;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCompanyLoc() {
+		return companyLoc;
+	}
+
+	public void setCompanyLoc(String companyLoc) {
+		this.companyLoc = companyLoc;
+	}
+
+	public String getFormId() {
+		return formId;
+	}
+
+	public void setFormId(String formId) {
+		this.formId = formId;
+	}
+
+	public String getResume() {
+		return resume;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
     
-    public double getGradCGPA() {
-        return gradCGPA;
-    }
-
-    public void setGradCGPA(double gradCGPA) {
-        this.gradCGPA = gradCGPA;
-    }
-
-    public String getGraduationYear() {
-        return gradYear;
-    }
-
-    public void setGraduationYear(String graduationYear) {
-        this.gradYear = graduationYear;
-    }
-
-    public String getGraduationInstitute() {
-        return gradInstitute;
-    }
-
-    public void setGraduationInstitute(String graduationInstitute) {
-        this.gradInstitute = graduationInstitute;
-    }
-
-    public String getGraduationUniversity() {
-        return gradUniversity;
-    }
-
-    public void setGraduationUniversity(String graduationUniversity) {
-        this.gradUniversity = graduationUniversity;
-    }
-
-    public String getGraduationCityState() {
-        return gradCityState;
-    }
-
-    public void setGraduationCityState(String graduationCityState) {
-        this.gradCityState = graduationCityState;
-    }
-
-    public double getHscPercent() {
-        return hscPercent;
-    }
-
-    public void setHscPercent(double hscPercent) {
-        this.hscPercent = hscPercent;
-    }
-
-    public double getHscCGPA() {
-        return hscCGPA;
-    }
-
-    public void setHscCGPA(double hscCGPA) {
-        this.hscCGPA = hscCGPA;
-    }
-    
-    public String getHscYear() {
-        return hscYear;
-    }
-
-    public void setHscYear(String hscYear) {
-        this.hscYear = hscYear;
-    }
-
-    public double getSscPercent() {
-        return sscPercent;
-    }
-
-    public void setSscPercent(double sscPercent) {
-        this.sscPercent = sscPercent;
-    }
-
-    public double getSscCGPA() {
-        return sscCGPA;
-    }
-
-    public void setSscCGPA(double sscCGPA) {
-        this.sscCGPA = sscCGPA;
-    }
-    
-    public String getSscYear() {
-        return sscYear;
-    }
-
-    public void setSscYear(String sscYear) {
-        this.sscYear = sscYear;
-    }
-
-    public String getEducationalGap() {
-        return gap;
-    }
-
-    public void setEducationalGap(String educationalGap) {
-        this.gap = educationalGap;
-    }
-    
-    public int getYearsOfGap() {
-        return yearsOfGap;
-    }
-
-    public void setYearsOfGap(int yearsOfGap) {
-        this.yearsOfGap = yearsOfGap;
-    }
-
-    public String getWorkExperience() {
-        return workExp;
-    }
-
-    public void setWorkExperience(String workExperience) {
-        this.workExp = workExperience;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getCompanyLocation() {
-        return companyLoc;
-    }
-
-    public void setCompanyLocation(String companyLocation) {
-        this.companyLoc = companyLocation;
-    }
-
-    public String getYearsOfExperience() {
-        return yearsOfExp;
-    }
-
-    public void setYearsOfExperience(String yearsOfExperience) {
-        this.yearsOfExp = yearsOfExperience;
-    }
+	
 }

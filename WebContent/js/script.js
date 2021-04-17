@@ -356,7 +356,7 @@ function gradeSystemSelected() {
 
 let dateOfBirth = document.querySelectorAll('.datepicker');
 M.Datepicker.init(dateOfBirth, {
-  format: 'dd-mm-yyyy',
+  format: 'yyyy-mm-dd',
   autoClose: true,
   showMonthAfterYear: true,
   onSelect: () => {

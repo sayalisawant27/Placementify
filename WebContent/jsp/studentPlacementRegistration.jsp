@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="service.DBServices"%>
 <%@ page import="model.Course"%>
 <%@ page import="model.Batch"%>
+<%@ page import="model.Student"%>
+<%@ page import="service.DBServices"%>
+<%@ page import="service.DBServices"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="java.util.Base64"%>
 <%-- jsp code estart --%>
 
-<%
-	Course course = new Course();
-	Batch batch = new Batch();
-	DBServices db = new DBServices();
-	Connection conn = db.connectDB();
-	ResultSet courseRS, batchRS;
-	courseRS = db.getAllData("course");
-	batchRS = db.getAllData("batch");
-	//log(Base64.getDecoder().decode("Y291cnNl").toString());
-	//Base64.getDecoder().decode("YmF0Y2g=").toString()
+<% Course course=new Course(); Batch batch=new Batch(); DBServices db=new DBServices();
+									Connection conn=db.connectDB(); ResultSet courseRS, batchRS;
+									courseRS=db.getAllData("course"); batchRS=db.getAllData("batch");
+									//log(Base64.getDecoder().decode("Y291cnNl").toString());
+									//Base64.getDecoder().decode("YmF0Y2g=").toString()
 %>
 <%!void populateCourse() {
 
@@ -24,19 +20,22 @@
 <%-- jsp code end --%>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<!--Import Google Icon Font-->
+<meta charset=" ISO-8859-1">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"
 	media="screen,projection" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DYPIMR | Student Registration</title>
 </head>
+
 <body>
 
 	<nav class="red darken-4" role="navigation">
@@ -59,7 +58,7 @@
 			<input type="hidden" name="formId" id="formId">
 			<form id="resume-upload-form"></form>
 			<form id="photo-upload-form"></form>
-			<form class="col s12" method="post" action="../sendToDB.jsp">
+			<form id="main-form" class="col s12" method="post" action="../sendToDB.jsp">
 
 				<div class="card">
 					<div class="card-content">
@@ -70,8 +69,8 @@
 
 						<div class="row">
 							<div class="input-field col s12 l12">
-								Full Name as per SSC Marksheet <input type="text" name="name"
-									id="name" placeholder="Enter your full name" required>
+								Full Name as per SSC Marksheet 
+								<input type="text" name="name" id="name" placeholder="Enter your full name" required>
 							</div>
 						</div>
 
@@ -186,11 +185,10 @@
 								Select Course <select class="browser-default"
 									name="currentCourse" id="currentCourse" size="1" required>
 									<option value="" selected="selected">Select a course</option>
-									<%
-										while (courseRS.next()) {
-											out.println("<option value=" + courseRS.getInt(1) + ">" + courseRS.getInt(1) + ", "
-													+ courseRS.getString(2) + "</option>");
-										}
+									<% 
+									while (courseRS.next()) {
+											out.println("<option value=" + courseRS.getInt(1) + ">" +courseRS.getInt(1) + ","+courseRS.getString(2) + "</option>");
+									}
 									%>
 								</select>
 							</div>
@@ -200,9 +198,6 @@
 									<option value="" selected="selected">Select a batch</option>
 								</select>
 							</div>
-							<%
-								
-							%>
 						</div>
 
 						<div class="row">
@@ -414,14 +409,14 @@
 						<div class="row">
 							<div class="input-field col s12 l6">
 								<label for="yearsOfGap">Number of years of gap (If no
-									gap, type 0)</label> <input type="text" name="yearsOfGap" value=""
+									gap, type 0)</label> <input type="text" name="yearsOfGap" value="0"
 									placeholder="E.g. 1" />
 							</div>
 
 							<div class="input-field col s12 l6">
 								<label for="yearsOfExp">Years of Experience (If no
 									experience, type 0)</label> <input type="text" id="yearsOfExp"
-									name="yearsOfExp" value=""
+									name="yearsOfExp" value="0"
 									placeholder="E.g. 1 or 0.5 (5 months)"
 									oninput="return onlynum('yearsOfExp')" />
 							</div>
@@ -432,7 +427,7 @@
 						<div class="row">
 							<div class="input-field col s12 l12">
 								<label for="companyName">Company Name (If not applicable
-									type NA)</label> <input type="text" name="companyName" value=""
+									type NA)</label> <input type="text" name="companyName" value="NA"
 									placeholder="Enter company name" />
 							</div>
 						</div>
@@ -441,62 +436,19 @@
 							<div class="input-field col s12 l12">
 								<label for="companyLoc">Company Location (If not
 									applicable type NA)</label> <input type="text" name="companyLoc"
-									value="" placeholder="E.g. Pune" />
+									value="NA" placeholder="E.g. Pune" />
 							</div>
 						</div>
-						<!-- request.setAttribute("formId", "%><script>return finalName</script> --> 
-						<div class="row">
-							<div class="input-field  col s12 l12">
-								<div class="file-field input-field">
-									<div class="btn col s12 l2">
-									<input id="resumeNameID" form ="resume-upload-form" type="hidden" />
-										<input id="resume_max_id" form="resume-upload-form" type="hidden" name="MAX_FILE_SIZE"
-											value="16777216" /> <span> Browse </span> <input type="file" form="resume-upload-form" onchange="upload_check(this,'resume_max_id')"
-											id="resumeSelectBtn">
-									</div>
-									<div class="file-path-wrapper cols12 l10">
-										<input class="file-path validate" form="resume-upload-form" type="text" placeholder="Click on the button to upload your resume">
-									</div>
-									<input type="submit" id="resume-upload-button"
-										value="Upload Resume" form="resume-upload-form" class="btn"/><span id="resumeResult"></span>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="input-field  col s12 l12">
-								<div class="file-field input-field">
-									<div class="btn col s12 l2">
-										<input id="photo_max_id" type="hidden" name="MAX_FILE_SIZE"
-											value="3145728" /> <span>Browse</span> <input type="file" onchange="upload_check(this,'photo_max_id')"
-											id="photoSelectBtn">
-									</div>
-									<div class="file-path-wrapper col s12 l10">
-										<input class="file-path validate" type="text" placeholder="Click on the button to upload your passport size photo">
-									</div>
-									<input type="submit" id="photo-upload-button"
-										value="Upload Photo" form="photo-upload-form" class="btn" /><span id="photoResult"></span>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="row">
-							<div class="input-field col s12 l12" align="right">
-								<button class="btn waves-effect waves-light" type="submit"
-									name="action">
-									Submit <i class="material-icons right">send</i>
-								</button>
-							</div>
-						</div>
-
+						
+						<input form="main-form" type="submit"></input>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 
-	<footer class="page-footer">
+
+	<footer class="page-footer red darken-4">
 		<div class="container">
 			<div class="row">
 				<div class="col l6 s12">
@@ -507,10 +459,14 @@
 				<div class="col l4 offset-l2 s12">
 					<h5 class="white-text">Links</h5>
 					<ul>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a>
+						</li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a>
+						</li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a>
+						</li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -531,62 +487,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
-	<script>
-		$('#currentCourse').change(function() {
-			var data = "";
-
-			$.ajax({
-				type : "GET",
-				url : "/Placementify/PopulateBatch",
-				data : "currentCourse_selectedvalue=" + $(this).val(),
-
-				async : false,
-				success : function(response) {
-					data = response;
-					document.getElementById("currentBatch").innerHTML = data;
-					console.log(data);
-				},
-				error : function() {
-					alert('Error occured');
-				}
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function() {
-			$('#resume-upload-button').click(function() {
-				var form = $('#resume-upload-form');
-				var formId=$( "#resumeNameID" ).val();  
-				form.submit();
-					$.ajax({
-						type : "POST",
-						url : "/Placementify/TestServlet",
-						data : "filedata="+form.serialize()+"&field2="+formId,
-						enctype : 'multipart/form-data',
-						success : function(result) {
-							$('#resumeResult').html(result);
-						}
-					});
-			});
-		});
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#photo-upload-button').click(function() {
-				var form = $('#photo-upload-form');
-				var formId=$( "#formId" ).val();  
-				 form.submit();
-					$.ajax({
-						type : "POST",
-						url : '/Placementify/TestServlet',
-						data : jQuery.param({ field1: form.serialize(), field2 : formId}),
-						enctype : 'multipart/form-data',
-						success : function(result) {
-							$('#photoResult').html(result);
-						}
-					});
-			});
-		});
-	</script>
+	
 </body>
+
 </html>

@@ -113,7 +113,7 @@ std.setWorkExperience(request.getParameter("exp"));
 std.setCompanyName(request.getParameter("companyName"));
 std.setCompanyLocation(request.getParameter("companyLoc"));
 std.setYearsOfExperience(request.getParameter("yearsOfExp"));
-//setStudentDatatoDB(std);
+setStudentDatatoDB(std);
 
 %>
 </body>

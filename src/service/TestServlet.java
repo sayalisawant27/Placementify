@@ -32,7 +32,7 @@ public class TestServlet extends HttpServlet {
 		//Enumeration<String> params = request.getParameterNames();
 		// String formId=params.nextElement();
 		//response.getWriter().append("Served at: ").append(request.getParameter("field2"));
-		System.out.println(request.getParameter("field2")+",,,,, "+request.getParameter("filedata"));
+		response.getWriter().append(request.getParameter("field2")+",,,,, "+request.getParameter("filedata"));
 		/*Enumeration<String> params = request.getParameterNames(); 
 		while(params.hasMoreElements()){
 		 String paramName = params.nextElement();

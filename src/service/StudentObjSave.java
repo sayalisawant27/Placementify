@@ -33,26 +33,20 @@ public class StudentObjSave extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Student std=new Student();
-		std.setNameBySSC(request.getParameter("name"));
+		/*Student std=new Student();
+		std.setNameBySSC(request.getParameter("firstName")+" "+request.getParameter("middleName")+" "+request.getParameter("lastName"));
 		std.setGender(request.getParameter("gender"));
-		std.setCurrentCity(request.getParameter("currCity"));
-		String sDate1=request.getParameter("birthday");
-		Date date;
-		try {
-			date = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
-			std.setDateOfBirth(date);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		std.setDateOfBirth(request.getParameter("dateOfBirth"));
+		std.setState(request.getParameter("homeState"));
+		std.setCurrentCity(request.getParameter("currentStateSelect"));
+
 		
 		std.setLanguagesKnown(request.getParameter("langKnown"));
 		std.setEmaiId(request.getParameter("emailId"));
 		std.setPhoneNumber(request.getParameter("phoneNo"));
 		std.setWhatsappNumber(request.getParameter("whatsappNo"));
 		std.setHomeTown(request.getParameter("homeCity"));
-		std.setState(request.getParameter("homeState"));
+
 		String courseDetails=request.getParameter("currentCourse");
 		String[] arr1=courseDetails.split(", ");
 		std.setCuid(Integer.parseInt(arr1[0]));
@@ -94,8 +88,27 @@ public class StudentObjSave extends HttpServlet {
 		std.setWorkExperience(request.getParameter("exp"));
 		std.setCompanyName(request.getParameter("companyName"));
 		std.setCompanyLocation(request.getParameter("companyLoc"));
-		std.setYearsOfExperience(request.getParameter("yearsOfExp"));
+		std.setYearsOfExperience(request.getParameter("yearsOfExp"));*/
 		//setStudentDatatoDB(std);
+		
+		response.getWriter().append(request.getParameter("dateOfBirth"));
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		
 	}
