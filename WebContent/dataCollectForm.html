@@ -136,7 +136,7 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" id="English" value="English">
+                                        <input type="checkbox" name="Languages" id="English" value="English">
                                     </div>
                                 </div>
                                 <label class="form-control  form-control-sm">English</label>
@@ -144,7 +144,7 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" id="Hindi" value="Hindi">
+                                        <input type="checkbox" name="Languages" id="Hindi" value="Hindi">
                                     </div>
                                 </div>
                                 <label class="form-control  form-control-sm">Hindi</label>
@@ -152,7 +152,7 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" id="Marathi" value="Marathi">
+                                        <input type="checkbox" name="Languages" id="Marathi" value="Marathi">
                                     </div>
                                 </div>
                                 <label class="form-control  form-control-sm">Marathi</label>
@@ -161,7 +161,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
                                         <input type="checkbox" id="OtherLanguages" onclick="EnableOtherLangs(this)"
-                                            name="OtherLanguages" value="OtherLanguages">
+                                            name="Languages" value="OtherLanguages">
                                     </div>
                                 </div>
                                 <input type="text" class="form-control form-control-sm"
@@ -288,11 +288,11 @@
                                     <select class="form-control" id="selectGradMakingScheme"
                                         name="selectGradMakingScheme">
                                         <option selected>Select one</option>
-                                        <option>Percentage</option>
-                                        <option>CGPA</option>
+                                        <option value="percentage">Percentage</option>
+                                        <option value="cgpa">CGPA</option>
                                     </select>
                                 </div>
-                                <input type="text" class="form-control" id="percentOrCgpa" name="percentOrCgpa"
+                                <input type="text" class="form-control" id="gradPercentOrCgpa" name="percentOrCgpa"
                                     placeholder="Enter Percent or CGPA" aria-label="Text input with dropdown button">
                             </div>
                         </div>
@@ -326,12 +326,12 @@
                                 <div class="input-group-prepend">
                                     <select class="form-control" id="selectHSCMakingScheme">
                                         <option selected>Select one</option>
-                                        <option>Percentage</option>
-                                        <option>CGPA</option>
+                                        <option value="percentage">Percentage</option>
+                                        <option value="cgpa">CGPA</option>
                                     </select>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Enter Percent or CGPA"
-                                    aria-label="Text input with dropdown button">
+                                    id="hscPercentOrCgpa" name="hscPercentOrCgpa" aria-label="Text input with dropdown button">
                             </div>
                         </div>
                     </div>
@@ -346,12 +346,12 @@
                                 <div class="input-group-prepend">
                                     <select class="form-control" id="selectSSCMakingScheme">
                                         <option selected>Select one</option>
-                                        <option>Percentage</option>
-                                        <option>CGPA</option>
+                                        <option value="percentage">Percentage</option>
+                                        <option value="cgpa">CGPA</option>
                                     </select>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Enter Percent or CGPA"
-                                    aria-label="Text input with dropdown button">
+                                  id="sscPercentOrCgpa" name="sscPercentOrCgpa"  aria-label="Text input with dropdown button">
                             </div>
                         </div>
                     </div>
@@ -400,7 +400,7 @@
                         <label class="required-field" for="resumeFile">Upload resume</label>
                         <div id="resumeFile" class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile02"> <label
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" name="inputGroupFile01"> <label
                                     class="custom-file-label" for="inputGroupFile02">Choose resume file</label>
                             </div>
                             <div class="input-group-append">
@@ -413,7 +413,7 @@
                         <label class="required-field" for="photoFile">Upload photo</label>
                         <div id="photoFile" class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile02"> <label
+                                <input type="file" class="custom-file-input" id="inputGroupFile02" name="inputGroupFile02"> <label
                                     class="custom-file-label" for="inputGroupFile02">Choose photo</label>
                             </div>
                             <div class="input-group-append">
@@ -459,7 +459,7 @@
                 var courseOptions = "";
                 var courseDropdown = document.getElementById("selectCourse");
                 $.each(data.courseData, function (i, data) {
-                    courseOptions += '<option value="' + data.courseId + '">' + data.courseName + '</option>';
+                    courseOptions += '<option value="' + data.courseId + ',' + data.courseName + '">' + data.courseName + '</option>';
                     console.log(data.courseId, " : ", data.courseName);
                 });
                 courseDropdown.innerHTML = courseOptions;
@@ -471,7 +471,7 @@
                 var batchOptions = "";
                 var batchDropdown = document.getElementById("selectBatch");
                 $.each(data.batchData, function (i, data) {
-                    batchOptions += '<option value="' + data.batchId + '">' + data.batchName + '</option>';
+                    batchOptions += '<option value="' + data.batchId + ',' + data.batchName + '">' + data.batchName + '</option>';
                     console.log(data.batchId, " : ", data.batchName);
                 });
                 batchDropdown.innerHTML = batchOptions;
