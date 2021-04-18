@@ -24,7 +24,7 @@ public class DBServices {
     }
 
     public Connection connectDB() throws SQLException, Exception {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection(url, username, password);
         return connection;
     }
@@ -42,6 +42,17 @@ public class DBServices {
     
     public ResultSet getDataByFK(String tableName, String fk, int id) throws Exception {
         String queryString = "Select * from " + tableName+" where "+fk+"="+id;
+        Connection connection1 = connectDB();
+        statement = connection1.createStatement();
+        try {
+            resultSet = statement.executeQuery(queryString);
+            return resultSet;
+        } catch(Exception e) { }
+        return resultSet;
+    }
+    
+    public ResultSet getDataByCols(String tableName, String colNames) throws Exception {
+    	String queryString = "Select ("+colNames+") from " + tableName;
         Connection connection1 = connectDB();
         statement = connection1.createStatement();
         try {
@@ -92,5 +103,7 @@ public class DBServices {
     	ps.setString(34,std.getCompanyLocation());
     	ps.setString(35,std.getYearsOfExperience());
     	int rs=ps.executeUpdate();
-    }	
+    }
+    
+    
 }

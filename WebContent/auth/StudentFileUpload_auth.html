@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">DYPIMR, Placement Cell</a>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h5 class="display-4">Student registration</h5>
+            <p class="lead">This is for a automation system develeoped for
+                Placement cell of DYPIMR, Pimpri</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Files Upload</h5>
+                <!-- <form method="post" action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="resumeFile">
+                                <label for="resumeFile" class="resume-file-label">Select resume file</label>
+                            </div>
+                            <label class="required-field" for="resumeFile">Upload resume</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="required-field" for="photoFile">Upload photo</label>
+                            <div class="custom-file">
+                                <input id="photoFile" class="custom-file-input" type="file" name="photoFile">
+                                <label for="photoFile" class="photo-file-label">Select photo file</label>
+                            </div>
+                        </div>
+                </form> -->
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label class="required-field" for="resumeFile">Upload resume</label>
+                        <div id="resumeFileDiv" class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="resumeFile"> <label
+                                    class="custom-file-label" for="resumeFile">Choose resume</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="required-field" for="photoFile">Upload photo</label>
+                        <div id="photoResumeDiv" class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="photoFile"> <label
+                                    class="custom-file-label" for="photoFile">Choose photo</label>
+                            </div>
+                        </div>
+                    </div><br>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+-->
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <script>
+        $('#resumeFile').on('change', function () {
+            var fileName = $(this).val();
+            $(this).next('.custom-file-label').html(fileName);
+        })
+        $('#photoFile').on('change', function () {
+            var fileName = $(this).val();
+            $(this).next('.custom-file-label').html(fileName);
+        })
+    </script>
+
+</body>
+
+</html>

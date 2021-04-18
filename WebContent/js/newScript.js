@@ -6,6 +6,18 @@ function checkData(elementid, value) {
 	console.log(elementid, " - ", value);
 }
 
+function getNames() {
+	var serializeForm = (formElement) => {
+		const formData = {};
+		const inputs = formElement.elements;
+		for (let i = 0; i < inputs.length; i++) {
+			if (inputs[i].name !== "")
+				formData[inputs[i].name] = inputs[i].value;
+		}
+		console.log(formData);
+	}
+}
+
 function sameAsPhone() {
 	var phoneNumberTF = document.getElementById("phoneNumber").value;
 	//console.log(phoneNumberTF)
