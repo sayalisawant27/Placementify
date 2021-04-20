@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 @WebServlet("/UploadDocuments")
-@MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
+@MultipartConfig(fileSizeThreshold=1024*1024*20, // 20MB
                  maxFileSize=1024*1024*10,      // 10MB
                  maxRequestSize=1024*1024*50)   // 50MB
 public class UploadDocuments extends HttpServlet {
 
-    private static final String SAVE_DIR = "uploads/student/documents";
+    private static final String SAVE_DIR = "uploads";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String appPath = request.getServletContext().getRealPath("");

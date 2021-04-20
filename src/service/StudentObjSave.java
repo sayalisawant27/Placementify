@@ -137,7 +137,8 @@ public class StudentObjSave extends HttpServlet {
 		String hashBytes = "";
 		try {
 			digest = MessageDigest.getInstance("MD5");
-			String inputBytes = new Date().toString();
+			long timeVar = new Date().getTime();
+			String inputBytes = timeVar+"";
 			Random randNo = new Random();
 			String numberRand = randNo.nextDouble()*randNo.nextInt()+"";
 			String formId = inputBytes+numberRand;
@@ -148,11 +149,14 @@ public class StudentObjSave extends HttpServlet {
 			e1.printStackTrace();
 		}
 
-		std.setFormId(hashBytes);
+		std.setFormId(hashBytes.replace("[B@", ""));
 
 		int resultCount = 0;
 		try {
 			resultCount = setStudentDataToDB(std);
+			if(resultCount!=0) {
+				response.sendRedirect("/HomePage.html");
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

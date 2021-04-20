@@ -47,12 +47,12 @@
                             </div>
                         </div>
                 </form> -->
-                <form method="post" action="">
+                <form method="post" action="/Placementify/FileUpload"  enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="required-field" for="resumeFile">Upload resume</label>
                         <div id="resumeFileDiv" class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="resumeFile"> <label
+                                <input type="file" class="custom-file-input" name="resumeFileField" id="resumeFile"> <label
                                     class="custom-file-label" for="resumeFile">Choose resume</label>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         <label class="required-field" for="photoFile">Upload photo</label>
                         <div id="photoResumeDiv" class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="photoFile"> <label
+                                <input type="file" class="custom-file-input" name="photoFileField" id="photoFile"> <label
                                     class="custom-file-label" for="photoFile">Choose photo</label>
                             </div>
                         </div>
